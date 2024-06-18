@@ -37,10 +37,10 @@ const Droppable = (props: IDroppableProps) => {
         onDrop={dropHandler}
         onDragLeave={() => setIsOver(false)}
         id={`droppable-${props.col}`}
-        className={`flex flex-col pb-20 p-4 h-fit rounded-md gap-2 w-60 ${isOver ? "dark:bg-slate-800 bg-slate-200" :""}`}
+        className={`flex flex-col p-4 h-fit rounded-md gap-2 !w-60 ${isOver ? "dark:bg-slate-800 bg-slate-200" :""}`}
         >
             <h2 className="text-2xl font-bold text-center text-primary dark:text-secondary w-full">{props.col}</h2>
-            <div className="flex gap-2 justify-start flex-col flex-1">
+            <div className="flex gap-2 justify-start flex-col flex-1 overflow-y-auto max-h-screen">
                 {props.items && props.items.map((item, index) => {
                     if (item.status === props.col) return (
                         <Draggable isReadOnly={props.isReadOnly} index={index} key={index}>

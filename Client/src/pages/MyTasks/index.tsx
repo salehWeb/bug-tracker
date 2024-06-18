@@ -97,7 +97,7 @@ const MyTasks = () => {
     ), [projectPayload.result])
 
     return (
-        <div className="flex flex-col w-full p-2 py-10 my-10">
+        <div className="flex flex-col w-full p-2 pt-10 overflow-x-auto">
 
             <div className="flex flex-row gap-6 w-full flex-wrap-reverse items-center justify-between">
                 <div className="flex items-center justify-center flex-wrap gap-4">
@@ -123,7 +123,7 @@ const MyTasks = () => {
 
             </div>
 
-            <div className="flex flex-wrap flex-row justify-center items-start my-6 gap-2">
+            <div className="flex flex-row !min-w-[1235px] justify-center items-start mt-6 gap-2">
                 {!tasksPayload.isLoading ? data.length ? Object.keys(Status).map((value, index) => (
                     <Droppable isReadOnly={isReadOnly} handelDrop={handelDrop} items={data} col={value} key={index} />
                 )) : (
